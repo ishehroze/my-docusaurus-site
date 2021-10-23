@@ -54,9 +54,21 @@
 \usepackage{tocloft}
 \renewcommand{\cftaftertoctitle}{\vspace{0.8ex}\endgraf\rule{\linewidth}{1px}}
 
-%%% Underlining links
-
+%%% Colored links
 \hypersetup{%
   colorlinks=true,
   allcolors=teal
 }
+
+%%% Setting larger subsection font
+\usepackage{titlesec}
+
+\titleformat{\subsection}
+  {\vspace{6pt}\normalfont\fontsize{16}{15}\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\vspace{2pt}\normalfont\fontsize{14}{15}\bfseries}{\thesubsubsection}{1em}{}
+
+\titleformat{\paragraph}
+  {\normalfont\fontsize{12}{15}\bfseries}{\theparagraph}{1em}{}
+
