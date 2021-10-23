@@ -1,0 +1,16 @@
+{
+    "config": {
+        "extends": "./markdownlint-custom-rules/.markdownlint-cli2.jsonc"
+    },
+    "customRules": [
+        "./.markdownlint/markdownlint-rule-github-internal-links.js",
+        "./.markdownlint/markdownlint-rule-unsupported-admonition-syntax.js"
+    ],
+    "markdownItPlugins": [
+        ["./.markdownlint/markdown-it-container.js", "note"],
+        ["./.markdownlint/markdown-it-container.js", "info"],
+        ["./.markdownlint/markdown-it-container.js", "tip"],
+        ["./.markdownlint/markdown-it-container.js", "caution"],
+        ["./.markdownlint/markdown-it-container.js", "danger"]
+    ]
+}

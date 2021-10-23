@@ -1,0 +1,24 @@
+pandoc-latex-environment:
+  infoblock: [info]
+  importantblock: [important]
+  tipblock: [tip]
+  dangerblock: [danger]
+  cautionblock: [caution]
+  noteblock: [note]
+
+pandoc-latex-tip:
+  - classes: [info]
+    icons: [info-circle]
+  - classes: [caution]
+    icons: [fire]
+  - classes: [note]
+    icons: [info-circle]
+
+documentclass: article
+geometry:
+  - top=2.54cm
+  - bottom=2.54cm
+  - left=1.91cm
+  - right=1.91cm
+
+numbersections: true

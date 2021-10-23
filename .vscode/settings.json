@@ -1,0 +1,15 @@
+{
+    "pasteImage.path": "${projectRoot}/docs/assets/${currentFileNameWithoutExt}",
+    "editor.rulers": [
+        80
+    ],
+    "vale.valeCLI.config": "${workspaceFolder}/.vale/.vale.ini",
+    "markdownlint.run": "onSave",
+    "[markdown]": {
+        "editor.formatOnSave": true
+    },
+    "pasteImage.showFilePathConfirmInputBox": true,
+    "markdown.styles": [
+        "./.vscode/markdown-preview.css"
+    ]
+}

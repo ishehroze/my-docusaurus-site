@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "goessner.mdmath",
+        "valentjn.vscode-ltex",
+        "jebbs.markdown-extended",
+        "errata-ai.vale-server",
+        "esbenp.prettier-vscode",
+        "mushan.vscode-paste-image",
+        "jakob101.relativepath",
+        "teabyii.ayu",
+        "blackmist.linkcheckmd"
+    ]
+}

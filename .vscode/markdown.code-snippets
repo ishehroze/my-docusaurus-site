@@ -1,0 +1,57 @@
+{
+    "Note Admonition": {
+      "scope": "markdown",
+      "prefix": ["note"],
+      "body": "\n:::note $1\n\n$2\n\n:::\n",
+      "description": "Note admonition for remark-style markdown"
+    },
+    "Tip Admonition": {
+      "scope": "markdown",
+      "prefix": ["tip"],
+      "body": "\n:::tip $1\n\n$2\n\n:::\n",
+      "description": "Tip admonition for remark-style markdown"
+    },
+    "Info Admonition": {
+      "scope": "markdown",
+      "prefix": ["info"],
+      "body": "\n:::info $1\n\n$2\n\n:::\n",
+      "description": "Info admonition for remark-style markdown"
+    },
+    "Caution Admonition": {
+      "scope": "markdown",
+      "prefix": ["caution"],
+      "body": "\n:::caution $1\n\n$2\n\n:::\n",
+      "description": "Caution admonition for remark-style markdown"
+    },
+    "Danger Admonition": {
+      "scope": "markdown",
+      "prefix": ["danger"],
+      "body": "\n:::danger $1\n\n$2\n\n:::\n",
+      "description": "Danger admonition for remark-style markdown"
+    },
+    "Frontmatter": {
+      "scope": "markdown",
+      "prefix": "frontmatter",
+      "body": "---\nid: ${TM_FILENAME_BASE}\ntitle: ${2:title}\n#sidebar_label: <specify if it is other than title>\n#description: <optional>\nslug: ${TM_FILENAME_BASE}\n#sidebar_position: <specify after confirming order>\n---\n\n"
+    },
+    "Heading Alt Text": {
+      "scope": "markdown",
+      "prefix": "heading-alt-text",
+      "body": "${1:${CLIPBOARD/#+\\s+//g}}"
+    },
+    "Heading Link": {
+      "scope": "markdown",
+      "prefix": "heading-link",
+      "body": "[${1:${CLIPBOARD}}](${2:#${CLIPBOARD/([^\\s]*)(\\s|$)*/${1:/downcase}${2:+-}/g}})"
+    },
+    "(–) en dash": {
+      "scope": "markdown",
+      "prefix": "--",
+      "body": "–"
+    },
+    "(—) em dash": { 
+      "scope": "markdown",
+      "prefix": "---",
+      "body": "—"
+    }
+}

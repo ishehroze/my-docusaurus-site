@@ -1,0 +1,62 @@
+%%% Admonitions
+\usepackage{fontawesome5}
+
+\definecolor{info-back}{RGB}{235,245,251}
+\definecolor{info-frame}{RGB}{52, 152, 219}
+\definecolor{important-back}{RGB}{235,245,251}
+\definecolor{important-frame}{RGB}{52, 152, 219}
+\definecolor{tip-back}{RGB}{234,250,241}
+\definecolor{tip-frame}{RGB}{46, 204, 113}
+\definecolor{danger-back}{RGB}{253,237,236}
+\definecolor{danger-frame}{RGB}{231, 76, 60}
+\definecolor{caution-back}{RGB}{253, 242, 233}
+\definecolor{caution-frame}{RGB}{230, 126, 34}
+\definecolor{note-frame}{RGB}{241, 196, 15}
+\definecolor{note-back}{RGB}{254, 249, 231}
+
+\usepackage{tcolorbox}
+  \newtcolorbox[]{infoblock}[1][\faInfoCircle{} \hspace{0em} \textbf{\textsf{INFO}}]{colback=info-back,arc=1pt,outer arc=2pt,colframe=info-frame,title={#1}, lefttitle=0mm}
+  \newtcolorbox[]{importantblock}[1][\faInfoCircle{} \hspace{0em} \textbf{\textsf{IMPORTANT}}]{colback=important-back,arc=1pt,outer arc=2pt,colframe=important-frame,title={#1}, lefttitle=0mm}
+  \newtcolorbox[]{tipblock}[1][\faLightbulb \hspace{0.3em} \textbf{\textsf{TIP}}]{colback=tip-back,arc=1pt,outer arc=2pt,colframe=tip-frame,title={#1}, lefttitle=0mm}
+  \newtcolorbox[]{dangerblock}[1][\faFire{} \hspace{0em} \textbf{\textsf{DANGER}}]{colback=danger-back,arc=1pt,outer arc=2pt,colframe=danger-frame,title={#1}, lefttitle=0mm}
+  \newtcolorbox[]{cautionblock}[1][\faExclamationTriangle \hspace{0.1em} \textbf{\textsf{CAUTION}}]{colback=caution-back,arc=1pt,outer arc=2pt,colframe=caution-frame,title={#1}, lefttitle=0mm}
+  \newtcolorbox[]{noteblock}[1][\faInfoCircle{} \hspace{0em} \textbf{\textsf{NOTE}}]{colback=note-back,arc=1pt,outer arc=2pt,colframe=note-frame,title={#1}, lefttitle=0mm}
+
+
+%%% Palatino font
+\usepackage[notextcomp]{kpfonts}
+\usepackage[T1]{fontenc}
+
+%%% Adobe Utopia font
+% \usepackage{fourier}
+% \usepackage[T1]{fontenc}
+
+%%% Times font
+% \usepackage{mathptmx}
+% \usepackage[T1]{fontenc}
+
+%%% Kerkis
+% \usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+% \usepackage[T1]{fontenc}
+
+%%% Fix numbering
+\usepackage{titlesec}% http://ctan.org/pkg/titlesec
+\titleformat{\section}%
+  [hang]% <shape>
+  {\normalfont\bfseries\Large}% <format>
+  {}% <label>
+  {0pt}% <sep>
+  {}% <before code>
+\renewcommand{\thesection}{}% Remove section references...
+\renewcommand{\thesubsection}{\arabic{subsection}}%... from subsections
+
+%%% Good-looking TOC
+\usepackage{tocloft}
+\renewcommand{\cftaftertoctitle}{\vspace{0.8ex}\endgraf\rule{\linewidth}{1px}}
+
+%%% Underlining links
+
+\hypersetup{%
+  colorlinks=true,
+  allcolors=teal
+}

@@ -1,0 +1,23 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Export to PDF",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/${relativeFileDirname}"
+            },
+            "windows":{
+                "command": "pandoc --metadata-file ${workspaceFolder}\\.pandoc\\metadata.yml --highlight-style tango -H ${workspaceFolder}\\.pandoc\\header.tex -B ${workspaceFolder}\\.pandoc\\before-body.tex -fmarkdown-implicit_figures --filter pandoc-latex-environment -o ${fileBasenameNoExtension}.pdf ${fileBasenameNoExtension}.md"
+            },
+            "linux":{
+                "command": "pandoc --metadata-file ${workspaceFolder}/.pandoc/metadata.yml --highlight-style tango -H ${workspaceFolder}/.pandoc/header.tex -B ${workspaceFolder}/.pandoc/before-body.tex -fmarkdown-implicit_figures --filter pandoc-latex-environment -o ${fileBasenameNoExtension}.pdf ${fileBasenameNoExtension}.md"
+            },
+            "osx":{
+                "command": "pandoc --metadata-file ${workspaceFolder}/.pandoc/metadata.yml --highlight-style tango -H ${workspaceFolder}/.pandoc/header.tex -B ${workspaceFolder}/.pandoc/before-body.tex -fmarkdown-implicit_figures --filter pandoc-latex-environment -o ${fileBasenameNoExtension}.pdf ${fileBasenameNoExtension}.md"
+            }
+        }
+    ]
+}
