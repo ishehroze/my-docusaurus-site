@@ -23,8 +23,9 @@
   \newtcolorbox[]{noteblock}[1][\faInfoCircle{} \hspace{0em} \textbf{\textsf{NOTE}}]{colback=note-back,arc=1pt,outer arc=2pt,colframe=note-frame,title={#1}, lefttitle=0mm}
 
 
-%%% Palatino font
+%%% Palatino font with suitable Monospace font
 \usepackage[notextcomp]{kpfonts}
+\usepackage[scaled]{beramono}
 \usepackage[T1]{fontenc}
 
 %%% Adobe Utopia font
@@ -72,3 +73,6 @@
 \titleformat{\paragraph}
   {\normalfont\fontsize{12}{15}\bfseries}{\theparagraph}{1em}{}
 
+%%% Wrapping long code lines
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}

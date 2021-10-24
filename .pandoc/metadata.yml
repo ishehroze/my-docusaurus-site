@@ -15,6 +15,7 @@ pandoc-latex-tip:
     icons: [info-circle]
 
 documentclass: article
+papersize: a4
 geometry:
   - top=2.54cm
   - bottom=2.54cm
