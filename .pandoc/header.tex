@@ -74,5 +74,9 @@
   {\normalfont\fontsize{12}{15}\bfseries}{\theparagraph}{1em}{}
 
 %%% Wrapping long code lines
+%%% Wrapping long code lines
 \usepackage{fvextra}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines=true,breakafter=-/[(,commandchars=\\\{\}}
+\AtBeginDocument{
+  \renewcommand{\StringTok}[1]{\textcolor[RGB]{79,153,5}{\FancyVerbBreakStart#1\FancyVerbBreakStop}}
+}
