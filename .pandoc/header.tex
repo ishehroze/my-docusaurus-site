@@ -49,7 +49,11 @@
   {0pt}% <sep>
   {}% <before code>
 \providecommand{\thesection}{}% Remove section references...
-\providecommand{\thesubsection}{\arabic{subsection}}%... from subsections
+\renewcommand{\thesection}{}
+\providecommand{\thesubsection}{\arabic{subsection}.0}%... from subsections
+\renewcommand{\thesubsection}{\arabic{subsection}.0}
+\providecommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}%... from subsections
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
 
 %%% Good-looking TOC
 \usepackage{tocloft}
@@ -79,6 +83,7 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines=true,breakafter=-/[(,commandchars=\\\{\}}
 \AtBeginDocument{
   \providecommand{\StringTok}[1]{\textcolor[RGB]{79,153,5}{\FancyVerbBreakStart#1\FancyVerbBreakStop}}
+  \renewcommand{\StringTok}[1]{\textcolor[RGB]{79,153,5}{\FancyVerbBreakStart#1\FancyVerbBreakStop}}
 }
 
 %%% Colored quotes
