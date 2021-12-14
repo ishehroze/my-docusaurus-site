@@ -1,5 +1,10 @@
 ---
+id: annuity
 title: Annuity Calulation
+#sidebar_label: <specify if it is other than title>
+#description: <optional>
+slug: annuity
+#sidebar_position: <specify after confirming order>
 ---
 
 ```python

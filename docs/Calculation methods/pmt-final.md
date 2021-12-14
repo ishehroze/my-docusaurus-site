@@ -1,5 +1,10 @@
 ---
+id: pmt-final
 title: PMT with extra payment
+#sidebar_label: <specify if it is other than title>
+#description: <optional>
+slug: pmt-final
+#sidebar_position: <specify after confirming order>
 ---
 
 Let,
@@ -146,13 +151,17 @@ $$
 
 ---
 
-Extra profit accrued during profit-only repayments $= q_{l-1}$
+Extra profit accrued during profit-only repayments
+
+$$= q_{l-1}$$
 
 Total repayment during repayments for previous profit adjustment = principal
 repayment + previous profit repayment + profit accrued during profit only
 repayments
 
-Which is $x + q + q_{l-1}$
+Which is
+
+$$x + q + q_{l-1}$$
 
 Hence, installment size during previous profit adjustment repayments
 $$= \frac{x + q + q_{l-1}}{l}$$

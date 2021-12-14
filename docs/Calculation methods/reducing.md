@@ -1,6 +1,17 @@
-# Excel version
-Click [this link](https://docs.google.com/spreadsheets/d/1AaSD19o-dI1REw9l3x5lsZEPcyw6mDpOwNxdAr5d2xI/edit#gid=0) to view an excel version of the following calculations
+---
+id: reducing
+title: Reducing method
+#sidebar_label: <specify if it is other than title>
+#description: <optional>
+slug: reducing
+#sidebar_position: <specify after confirming order>
+---
 
+## Excel version
+
+Click
+[this link](https://docs.google.com/spreadsheets/d/1AaSD19o-dI1REw9l3x5lsZEPcyw6mDpOwNxdAr5d2xI/edit#gid=0)
+to view an excel version of the following calculations
 
 ```python
 # Importing libraries
@@ -9,13 +20,12 @@ from datetime import date, timedelta              # Date data type and date diff
 from dateutil.relativedelta import relativedelta  # Adding/substracting month, week etc. from date
 
 import pandas as pd                               # Spreadsheet-like calculation
-                                                  
+
 from sympy.core.symbol import var                 # Symbolic variable
 from sympy import expand                          # Simplifying terms for understanding
 ```
 
-# Algebra
-
+## Algebra
 
 Let,
 
@@ -29,15 +39,15 @@ $P_i$ = Principal balance after i-th installment
 
 $p_i$ = Profit repayment for i-th installment
 
-$m_i$ = Day difference between i-th installment and (i - 1)-th installment/disbursement
+$m_i$ = Day difference between i-th installment and (i - 1)-th
+installment/disbursement
 
 $n$ = Number of installments
 
 $q$ = residual profit
 
-**Note**: $i$ starts at $0$ and ends at $n - 1$ to maintain consistancy with programming conventions
-
-
+**Note**: $i$ starts at $0$ and ends at $n - 1$ to maintain consistancy with
+programming conventions
 
 ```python
 disbursement = var('D')            # Let, D = disbursement
@@ -52,12 +62,11 @@ $$p_i = \frac{m_i \times r}{365 \times 100} \times P_{i-1}$$
 
 Let, Per taka profit,
 
-$$k_i = \frac{m_i \times r}{365 \times 100}$$ 
+$$k_i = \frac{m_i \times r}{365 \times 100}$$
 
 Hence, we can write,
 
 $$p_i = k_i \times P_{i-1}$$
-
 
 ```python
 per_taka_profits = []       # Empty list of per taka profit
@@ -70,12 +79,7 @@ for i in range(n):          # range(n) -> 0, 1, 2, ..., n-1
 per_taka_profits            # Populated list of per taka profit
 ```
 
-
-
-
     [k_0, k_1, k_2, k_3, k_4]
-
-
 
 Now,
 
@@ -92,9 +96,6 @@ P_2 = P_1 - p_2 = P_1 - (A - k_1 \times P_1) \\
 P_{n-1} = P_{n-2} - p_{n-1} = P_{n-1} - (A - k_{n-1} \times P_{n-2})
 $$
 
-
-
-
 ```python
 def calculate_balance(previous_balance, installment_size, per_taka_profit, residual_profit=0):
   profit_repayment = per_taka_profit * previous_balance + residual_profit
@@ -105,7 +106,6 @@ def calculate_balance(previous_balance, installment_size, per_taka_profit, resid
 
   return current_balance
 ```
-
 
 ```python
 principal_balance = calculate_balance(previous_balance=disbursement,
@@ -129,15 +129,10 @@ final_balance = principal_balance
     -3*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + k_2*(-2*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + q) + q
     -4*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + k_2*(-2*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + q) + k_3*(-3*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + k_2*(-2*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + q) + q) + q
     -5*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + k_2*(-2*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + q) + k_3*(-3*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + k_2*(-2*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + q) + q) + k_4*(-4*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + k_2*(-2*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + q) + k_3*(-3*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + k_2*(-2*A + D*k_0 + D + k_1*(-A + D*k_0 + D + q) + q) + q) + q) + q
-    
-
 
 ```python
 final_balance.expand().as_ordered_terms()
 ```
-
-
-
 
     [-A*k_1*k_2*k_3*k_4,
      -A*k_1*k_2*k_3,
@@ -204,10 +199,10 @@ final_balance.expand().as_ordered_terms()
      k_4*q,
      q]
 
-
-
 For $n$ = $5$,
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 P_{n-1} =
   &-A \times k_1k_2k_3k_4 \\
   &-A \times k_1k_2k_3\\
@@ -338,21 +333,22 @@ P_{n-1} =
   &&+ k_4\\
   &&+ 1) \\
   &= -A \times C_A + D \times C_D + q \times C_q
-\end{aligned}$$
+\end{aligned}
+$$
 
-We can extrapolate that final principal balance for any given $n$, final principal balance can be expressed as
-$ -A \times C_A + D \times C_D + q \times C_q$
+We can extrapolate that final principal balance for any given $n$, final
+principal balance can be expressed as
+$-A \times C_A + D \times C_D + q \times C_q$
 
 Rewriting as a function of $D$, $A$ and $q$, the final principal balance,
 $$P_{n-1} = f(D,A,q) = D \times C_D - A \times C_A + q \times C_q$$
-
 
 ```python
 def calculate_final_balance(disbursement,
                             installment_size,
                             per_taka_profits,
                             residual_profit=0):
-  
+
   principal_balance = calculate_balance(previous_balance=disbursement,
                                         installment_size=installment_size,
                                         per_taka_profit=per_taka_profits[0],
@@ -368,20 +364,17 @@ def calculate_final_balance(disbursement,
 ```
 
 Putting $D$ = $1$, $A$ = $0$, and $q$ = $0$,
+
 $$
 f(1,0,0) = 1 \times C_D - 0 \times C_A + 0 \times C_q \\
 \Rightarrow C_D = f(1,0,0) ...(i)
 $$
-
 
 ```python
 final_balance_1_0_0 = calculate_final_balance(1, 0, per_taka_profits)
 
 final_balance_1_0_0.expand().as_ordered_terms()
 ```
-
-
-
 
     [k_0*k_1*k_2*k_3*k_4,
      k_0*k_1*k_2*k_3,
@@ -416,23 +409,18 @@ final_balance_1_0_0.expand().as_ordered_terms()
      k_4,
      1]
 
-
-
 Putting $D$ = $0$, $A$ = $1$, and $q$ = $0$,
+
 $$
 f(0,1,0) = 0 \times C_D - 1 \times C_A + 0 \times C_q \\
 \Rightarrow C_A = -f(0,1,0) ...(ii)
 $$
-
 
 ```python
 final_balance_0_1_0 = calculate_final_balance(0, 1, per_taka_profits)
 
 final_balance_0_1_0.expand().as_ordered_terms()
 ```
-
-
-
 
     [-k_1*k_2*k_3*k_4,
      -k_1*k_2*k_3,
@@ -451,23 +439,18 @@ final_balance_0_1_0.expand().as_ordered_terms()
      -4*k_4,
      -5]
 
-
-
 Putting $D$ = $0$, $A$ = $0$, and $q$ = $1$,
+
 $$
 f(0,0,1) = 0 \times C_D - 0 \times C_A - 1 \times C_q \\
 \Rightarrow C_q = f(0,0,1) ...(ii)
 $$
-
 
 ```python
 final_balance_0_0_1 = calculate_final_balance(0, 0, per_taka_profits, 1)
 
 final_balance_0_0_1.expand().as_ordered_terms()
 ```
-
-
-
 
     [k_1*k_2*k_3*k_4,
      k_1*k_2*k_3,
@@ -486,9 +469,8 @@ final_balance_0_0_1.expand().as_ordered_terms()
      k_4,
      1]
 
-
-
-We know that after the last installment, the principal balance, $P_{n-1}$ is $0$. Hence, we can write,
+We know that after the last installment, the principal balance, $P_{n-1}$ is
+$0$. Hence, we can write,
 
 $$
 \begin{aligned}
@@ -500,7 +482,6 @@ $$
 $$
 
 # Algorithm
-
 
 ```python
 # balance_after_first_repayment
