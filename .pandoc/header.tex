@@ -14,7 +14,7 @@
 \definecolor{note-frame}{RGB}{241, 196, 15}
 \definecolor{note-back}{RGB}{254, 249, 231}
 
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
   \newtcolorbox[]{infoblock}[1][\faInfoCircle{} \hspace{0em} \textbf{\textsf{INFO}}]{colback=info-back,arc=1pt,outer arc=2pt,colframe=info-frame,title={#1}, lefttitle=0mm}
   \newtcolorbox[]{importantblock}[1][\faInfoCircle{} \hspace{0em} \textbf{\textsf{IMPORTANT}}]{colback=important-back,arc=1pt,outer arc=2pt,colframe=important-frame,title={#1}, lefttitle=0mm}
   \newtcolorbox[]{tipblock}[1][\faLightbulb \hspace{0.3em} \textbf{\textsf{TIP}}]{colback=tip-back,arc=1pt,outer arc=2pt,colframe=tip-frame,title={#1}, lefttitle=0mm}
@@ -48,12 +48,17 @@
   {}% <label>
   {0pt}% <sep>
   {}% <before code>
-\renewcommand{\thesection}{}% Remove section references...
-\renewcommand{\thesubsection}{\arabic{subsection}}%... from subsections
+\providecommand{\thesection}{}% Remove section references...
+\renewcommand{\thesection}{}
+\providecommand{\thesubsection}{\arabic{subsection}.0}%... from subsections
+\renewcommand{\thesubsection}{\arabic{subsection}.0}
+\providecommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}%... from subsections
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
 
 %%% Good-looking TOC
 \usepackage{tocloft}
 \renewcommand{\cftaftertoctitle}{\vspace{0.8ex}\endgraf\rule{\linewidth}{1px}}
+\setcounter{tocdepth}{5}
 
 %%% Colored links
 \hypersetup{%
@@ -75,4 +80,14 @@
 
 %%% Wrapping long code lines
 \usepackage{fvextra}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines=true,breakafter=-/[(,commandchars=\\\{\}}
+\AtBeginDocument{
+  \providecommand{\StringTok}[1]{\textcolor[RGB]{79,153,5}{\FancyVerbBreakStart#1\FancyVerbBreakStop}}
+  \renewcommand{\StringTok}[1]{\textcolor[RGB]{79,153,5}{\FancyVerbBreakStart#1\FancyVerbBreakStop}}
+}
+
+%%% Colored quotes
+\definecolor{blond}{rgb}{0.98, 0.94, 0.75}
+\newtcolorbox{myquote}{enhanced, boxrule=0pt, frame hidden, borderline west={4pt}{0pt}{yellow!75!black}, colback=yellow!10!white, sharp corners}
+% redefine the 'quote' environment to use this 'myquote' environment
+\renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
