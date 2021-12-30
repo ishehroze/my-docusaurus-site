@@ -26,9 +26,11 @@ $r$ = Rate
 
 $k$ = $\frac{r}{1200} \times f$
 
+$A$ = Installment size
+
 ## Installment size calculation for principal first method
 
-For principal first method, the installment size, $A$ can be expressed as
+For principal first method, $A$ can be expressed as
 $\frac{D}{min(m)} + \frac{kg}{n}$ where,
 
 $$m = \frac{n+\frac{kx}{2} (x+1)}{1+k(x+1)}$$
