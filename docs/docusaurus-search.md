@@ -18,7 +18,7 @@ slug: docusaurus-search
 3. Run the following command to create a typesense container:
 
 ```bash
-docker run --name typesense -p 8108:8108 -v typesense-data:/data --net docsearch typesense/typesense:0.22.0.rcs41 --data-dir /data --api-key=xyz –-enable-cors
+docker run --name typesense -p 8108:8108 -v typesense-data:/data --net docsearch typesense/typesense:0.22.0.rcs41 --data-dir /data --api-key=xyz --enable-cors
 ```
 
 :::note
