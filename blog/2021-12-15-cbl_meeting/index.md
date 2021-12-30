@@ -49,6 +49,14 @@ project managers.
 - MISL needs to deliver a previous year snapshot report to CBL
 - Brief mention of branch to Head Office P/L transfer
 
+:::info
+
+Additionally, Asad bhai raised the following issues:
+
+- Removing advice date validation from restructure back date rate change
+
+:::
+
 ### Objection regarding eitquette of mail
 
 Mr. S.M. Asaduzzaman placed his objection on being addressed without proper
