@@ -10,9 +10,17 @@ slug: irms_links
 ## Fundamental links
 
 - [AIBL RFP](https://docs.google.com/document/d/1SSkWGyKVJ7m2zw038efFDInHEw9qO9VOyNLS-FwV18o/edit)
+- [SoW google sheet](https://docs.google.com/spreadsheets/d/1txf6f7XbgwkoSQglb-t-fMgG29EOATeiYOoHUZwV7NI/edit#gid=0)
+- [Application link](http://192.168.1.199:8080/irms/irms/r/irms/login?session=3042623782378&tz=6:00).
+  username/password: misl/a
+- [Gitlab-Documents](http://gitlab.mislbd.lan/ababil-financing/afms/tree/master)
+
+## BB Circulars
+
 - [Bangladesh Bank Credit Risk Management Guidelines](https://bb.org.bd/aboutus/regulationguideline/bankriskmngment2018.pdf)
 - [Risk grading excel file](https://docs.google.com/spreadsheets/d/1posWQX8EHRYSnxbkGbIw8knru8PUuLkS/edit?usp=sharing&ouid=109531958425994198447&rtpof=true&sd=true)
-- [Application link](./irms_links.md)
+- [Single Borrower Exposure Limit](https://www.bb.org.bd/mediaroom/circulars/brpd/jan162014brpd02e_new.pdf)
+- [Stress Testing Guidelines](https://www.bb.org.bd/aboutus/regulationguideline/apr212010stressdos.pdf)
 
 ## Other links
 
